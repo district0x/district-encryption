@@ -2,7 +2,7 @@
 Set of functions helpful for data encryption on blockchain based on public/private key. This library utilises [eccjs](https://github.com/jpillora/eccjs). Suitable for both, nodejs and browser.
 
 ### Installation
-Add `[district0x/district-encryption "1.0.0"]` into your project.clj
+Add `[district0x/district-encryption "1.0.0"]` into your project.clj  
 Include `[district.encryption]` in your CLJS file.
 
 ## district.encryption
