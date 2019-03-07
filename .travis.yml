@@ -1,0 +1,25 @@
+sudo: required
+dist: trusty
+language: clojure
+notifications:
+  slack:
+    on_success: always
+    on_failure: always
+    rooms:
+    - district0x:53vhalUfg0MitsQwzjP5PWdd#travis-ci
+  email:
+    recipients:
+    - juan@district0x.io
+    - daniel@district0x.io
+    on_success: never
+    on_failure: always
+env:
+  global:
+  - secure: NjLeazQjsXoZuNJCHRrSac8AefoFkkrDBk3+Y9azXF8bJ/ExHOPrOfYEBQtC6fa32a4TYYxAkOuwEqlPlo7Q/hLd1U/mAvPWsNHtgamFdyY+6867R4Q6ZhxYDb6pFVNyknGmmnELvvcxDa3EheQd/mywDygbElb2/wEBglmsWl+rihlWJPePox7vbQ/C7wH8Qcsf58Nzxxaz0OFKK6siXV/P6qvUq9/OyDQe9C6f2ofadZCI+eO0nIAPntixiFIE3OEh4vWSDuEpOfORmo6tyGgiDHSbh7FF3yCcJlwcN9Kfl2VSjQsYEtw3Dc+QplJA/zieOHY4rsGefcIWJn5RjeJDpeDxK43p5si0V60koiFfSqntMztj51AIrg6ia8f1AboIL/mBCJAukIjTgaaSQb5J6QPdojXEI1at436uGMLLY/jtpt26fTLmZ+zbp9L0Zzah5AATIkRiIy++ebFWNb+T6RCclLXKYWG/MMbYuOyFvHEZIYZipYWD+be/qR7sAT+CdjEgv0w7cd6Ugq1Mj5WAChfXAl1o8n/QsrwEtqV5umDp0ip5k0Cq3eI85Ku3mInQe5qMGYQndJ31UVSoxp2lTaJLqZBAaEIXxUKlLUyGQwHLkSFbz2mlC4s2SBrShBuW4uYGXfU2VPtfPeBD1JKKpWYTlRkEo/qT0WPTRjI=
+  - secure: QTsDa0cBI233wMpXRhKEzKHRRtizdwzk9omFooXXwHWOkauoSg4RIc99QPvAr4QKGP+yWIlrHYoNB2TcfllyRMxzoKIMU4j29gE3spNIiOlIUmQmzw9PAgldIdfeAdM1pTz8RT5iUWpPpU3DmDUOjzs7tz0qDxLN4nzMd7OejXM8fV+X2PnfarNl3duY/FVJleS3R4u+l0objYcNtLr3SBWSWB3024JHKWI/GXyAHXicm/e+MJhbi79V/H1kMsvhjEAnDDxL4M1DR6HHNE+Clv7h6219ePCJeanb4DJxjUwr0GRhmB+UrWh4b/P3+9eLc1isPvvFGD2ZwB5MxOTL7EQ4dJ9vHSftT8LwXd4Xnn2rRaDs00TEOCdDdyQ2NXIlZlCkxl22j43bTSlYg277/faUdHVgnqS1LAQ2pCreN6gMJ4PJ3YueksROG2nM6ik+UUAhlJMAe8wqfGXOxL3m0kQlVeZqbg+iSrD2qn/mKUUwIYvdZmRjsmxuZNqcj+eJ0Gqrp/7B5wjd0x1j5fOvLpnh2uR77W+0x/hBU5vleiRWcaKmV/z/uD/m0zaf8ZkdSbyJJX6pzm6Ud0gks8KDNtu+hYfq8f9qAcftrhTyGWMsAyrgBlCLF7cd7z2jjXYhWfbuo74dAmZrO91gDs6Tg44LByC2cMr5/CmhEMUG0mE=
+deploy:
+- provider: script
+  skip_cleanup: true
+  script: lein release :patch
+  on:
+    branch: master
