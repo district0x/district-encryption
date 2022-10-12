@@ -1,4 +1,4 @@
-(defproject district0x/district-encryption "1.0.1-SNAPSHOT"
+(defproject district0x/district-encryption "1.0.2-SNAPSHOT"
   :description "Set of functions helpful for data encryption on blockchain based on public/private key"
   :url "https://github.com/district0x/district-encryption"
   :license {:name "Eclipse Public License"

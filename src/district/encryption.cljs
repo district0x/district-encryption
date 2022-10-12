@@ -3,7 +3,7 @@
     [cljsjs.eccjs :as eccjs]
     [goog.crypt.base64 :as base64]))
 
-(when (= (str js/process) "[object process]")               ;; node environment
+(when (and (exists? js/process) (= (str js/process) "[object process]"))               ;; node environment
   (set! js/ecc (js/require "eccjs")))
 
 (defn generate-keypair []
