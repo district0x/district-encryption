@@ -1,21 +1,18 @@
 (ns district.encryption
   (:require
-    [cljsjs.eccjs :as eccjs]
+    ["eccjs" :as ecc]
     [goog.crypt.base64 :as base64]))
 
-(when (and (exists? js/process) (= (str js/process) "[object process]"))               ;; node environment
-  (set! js/ecc (js/require "eccjs")))
-
 (defn generate-keypair []
-  (let [keypair (js->clj (.generate js/ecc (.-ENC_DEC js/ecc) 256))]
+  (let [keypair (js->clj (.generate ecc (.-ENC_DEC ecc) 256))]
     {:public-key (get keypair "enc")
      :private-key (get keypair "dec")}))
 
 (defn encrypt [public-key content]
-  (.encrypt js/ecc public-key content))
+  (.encrypt ecc public-key content))
 
 (defn decrypt [private-key content]
-  (.decrypt js/ecc private-key content))
+  (.decrypt ecc private-key content))
 
 (defn encode-base64 [s]
   (base64/encodeString s))
